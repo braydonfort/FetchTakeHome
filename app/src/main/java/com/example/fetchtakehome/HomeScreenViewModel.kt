@@ -23,7 +23,6 @@ class HomeScreenViewModel @Inject constructor(private val getListUseCase: GetLis
      fun getList(){
         viewModelScope.launch(Dispatchers.IO) {
             fetchListUseCase.execute()
-            itemList.emit(getListUseCase.execute().first())
             itemList.value = getListUseCase.execute().first()
         }
     }
